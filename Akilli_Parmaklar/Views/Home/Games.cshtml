@@ -5,24 +5,20 @@
 }
 
 <h1> Oyunlar sayfamiza hosgeldinz</h1>
-@foreach(var game in ViewBag.Games)
-{
 <table>
-    <tr>
-        <th>
-            Oyun adı
-        </th>
-        <th>
-            Oyun açıklaması
-        </th>
-    </tr>
-    <tr>
-        <td>
-            game.Name
-        </td>
-        <td>
-            game.Description
-        </td>
-    </tr>
+    <thead>
+        <tr>
+            <th>Oyun adı</th>
+            <th>Oyun açıklaması</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var game in ViewBag.Games)
+        {
+            <tr>
+                <td>@game.Name</td>
+                <td>@game.Description</td>
+            </tr>
+        }
+    </tbody>
 </table>
-}

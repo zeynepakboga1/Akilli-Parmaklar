@@ -6,6 +6,8 @@ using System.Diagnostics;
 
 namespace Akilli_Parmaklar.Controllers
 {
+    //[ApiController]
+    //[Route("api/[controller]")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -25,22 +27,57 @@ namespace Akilli_Parmaklar.Controllers
             return View();
 
         }
+        [HttpGet]
+        public IActionResult Login()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Login(LoginUser request)
+        {
+            User? user = _appDbContext.Users.FirstOrDefault(u => u.UserName == request.UserName);
+            if (user == null)
+            {
+                Console.WriteLine("Kullanıcı bulunamadı");
+            }
+            if(user.Password == request.Password)
+            {
+                Console.WriteLine("Kullanıcı giriş yaptı");
+                return View();
+            }
+            else
+            {
+                Console.WriteLine("Şifre yanlış");
+                return View();
+            }
+        }
+        [HttpPost]
         public IActionResult Register(RegisterUser request)
         {
-            User user = new User();
-            user.Name = request.Name;
-            user.Email = request.Email;
-            user.Password = request.Password;
-            user.SurName = request.SurName;
-            user.UserName = request.UserName;
-            user.Age = request.Age;
-            _appDbContext.Users.Add(user);
-            _appDbContext.SaveChanges(); 
-
+            User? user = _appDbContext.Users.FirstOrDefault(u => u.UserName == request.UserName);
+            if (user != null)
+            {
+                Console.WriteLine("Bu kullanıcı adına ait bir hesap daha önce oluşturuldu");
+                ViewBag.ErrorMessage = "Bu kullanıcı adına ait bir hesap daha önce oluşturuldu";
+                return View();
+            }
+            User createUser= new User();
+            createUser.Name = request.Name;
+            createUser.Email = request.Email;
+            createUser.Password = request.Password;
+            createUser.SurName = request.SurName;
+            createUser.UserName = request.UserName;
+            createUser.Age = request.Age;
+            _appDbContext.Users.Add(createUser);
+            _appDbContext.SaveChanges();
+            return View();
         }
+        [HttpGet]
         public IActionResult Games()
         {
             var games = _appDbContext.Games.ToList();
+            games.Add(new() { Name = "test" ,Description = "test description"});
             ViewBag.Games = games;
             return View();
         }
