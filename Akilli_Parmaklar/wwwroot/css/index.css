@@ -1,4 +1,78 @@
-﻿* {
+﻿body {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+  background-color: #e8f5e9;
+  font-family: "Fredoka", sans-serif;
+}
+/* Tüm sayfa için margin/padding sıfırlama */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.hero-section {
+  display: flex;
+  align-items: flex-start; /* içerikleri yukarı hizala */
+  justify-content: space-between;
+  padding: 40px 80px;
+  margin-top: 0;
+  gap: 20px; /* Aralarına biraz boşluk bırak */
+}
+
+.hero-text {
+  flex: 1;
+  padding: 20px; /* Yazı kenar boşluğu */
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; /* yukarıya hizalama */
+  font-size: 30px;
+  color: #333333;
+}
+.hero-text h1 {
+  font-size: 50px;
+  font-family: "Gloria Hallelujah", cursive;
+}
+.oyna {
+  color: #d9421c;
+}
+.ciz {
+  color: #7bb35d;
+}
+.gelis {
+  color: #f48fb1;
+}
+
+.hero-video {
+  max-width: 800px;
+  height: 750px;
+  flex: 1;
+  padding: 20px; /* Yazı kenar boşluğu */
+}
+
+.hero-video video {
+  width: 100%; /* Videoyu container'a oturtur */
+  height: auto;
+  border-radius: 15px; /* İsteğe bağlı: kenarları yumuşatır */
+}
+/* Başlıklar için sadece Luckiest Guy */
+h1 {
+  font-family: "Gloria Hallelujah", cursive;
+  font-size: 40px;
+}
+
+.content-window {
+  display: flex;
+  align-items: flex-start; /* içerikleri yukarı hizala */
+  justify-content: space-between;
+  padding: 40px 80px;
+  margin-top: 0;
+  gap: 20px; /* Aralarına biraz boşluk bırak */
+  background-color: #c8e6c9;
+  max-width: 1520px;
+  max-height: 500px;
+  border-radius: 15px;
+  border-color: #c8e6c9;
+  border-width: 3px;
 }
