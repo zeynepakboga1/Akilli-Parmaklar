@@ -6,8 +6,8 @@ using System.Diagnostics;
 
 namespace Akilli_Parmaklar.Controllers
 {
-    [ApiController]
-    [Route("api/[controller]")]
+    //[ApiController]
+    //[Route("api/[controller]")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
