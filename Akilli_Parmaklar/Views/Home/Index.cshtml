@@ -36,14 +36,15 @@ Sanal tahtada harfler, kutuda kalma oyunları ve daha fazlası...<br> el-göz ko
   </div>
 
   <!-- Oyunlar (2 sütunlu grid şeklinde) -->
-  <div class="game"><a href="#"class="gamebutton"><img src="~/images/oyun1.png" alt="oyun1"></a></div>
+  
+  <div class="game"><a href=""class="gamebutton"><img src="@ViewBag.Game.Name" alt="@ViewBag.Game.Name"></a></div>
   <div class="game"><a href="#"class="gamebutton"><img src="~/images/oyun2.png" alt="oyun2"></a></div>
   <div class="game"><a href="#"class="gamebutton"><img src="~/images/oyun3.png" alt="oyun3"></a></div>
   <div class="game"><a href="#"class="gamebutton"><img src="~/images/oyun4.png" alt="oyun4"></a></div>
 
   <!-- Alt ortadaki buton -->
   <div class="game-explore">
-    <a href="#" class="explore-button">Oyunlarımızı Keşfedin</a>
+    <a href="/Games" class="explore-button">Oyunlarımızı Keşfedin</a>
   </div>
 </div>
 

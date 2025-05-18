@@ -1,0 +1,31 @@
+@model Akilli_Parmaklar.Models.Game
+
+<link href="https://fonts.googleapis.com/css2?family=Fredoka&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
+
+<link href="~/css/index.css" rel="stylesheet" />
+
+<h2>Oyun Ekle</h2>
+
+<form asp-action="AddGame" method="post">
+    <div>
+        <label for="Name">Oyun Adı</label>
+        <input type="text" id="Name" name="Name" required />
+    </div>
+
+    <div>
+        <label for="Description">Açıklama</label>
+        <textarea id="Description" name="Description" required></textarea>
+    </div>
+
+        <div>
+        <label for="ImagePath">Fotoğraf </label>
+        <textarea id="ImagePath" name="ImagePath" required></textarea>
+    </div>
+        <div>
+        <label for="ExecutablePath">exe path</label>
+        <textarea id="ExecutablePath" name="ExecutablePath" required></textarea>
+    </div>
+
+    <button type="submit">Kaydet</button>
+</form>

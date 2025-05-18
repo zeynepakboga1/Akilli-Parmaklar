@@ -21,14 +21,16 @@ namespace Akilli_Parmaklar.Controllers
         [HttpGet("Index")]
         public IActionResult Index()
         {
+            var games = _appDbContext.Games.ToList();
+            foreach(var game in games)
+            {
+                
+            Console.WriteLine(game.Name);
+            }
+            ViewBag.Game = games[0];
             return View();
         }
-        [HttpGet("AddGame")]
-        public IActionResult AddGame(CreateGameRequest game)
-        {
-            return View();
 
-        }
         [HttpGet("Login")]
         public IActionResult Login()
         {
@@ -53,7 +55,9 @@ namespace Akilli_Parmaklar.Controllers
                 Console.WriteLine("Şifre yanlış");
                 return View();
             }
+            
         }
+
         [HttpPost("Register")]
         public IActionResult Register(RegisterUser request)
         {

@@ -15,6 +15,7 @@ namespace Akilli_Parmaklar.Controllers
             _logger = logger;
             _appDbContext = appDbContext;
         }
+
         [HttpGet]
         public IActionResult Index()
         {
@@ -29,11 +30,11 @@ namespace Akilli_Parmaklar.Controllers
             Game game = new Game();
             game.Name = request.Name;
             game.Description = request.Description;
-
+            game.ExecutablePath = request.ExecutablePath;
+            game.ImagePath = request.ImagePath;
             _appDbContext.Games.Add(game);
             _appDbContext.SaveChanges();
             return View();
-
         }
     }
 }
