@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Akilli_Parmaklar.Models;
-using Microsoft.OpenApi.Models; 
+using Microsoft.OpenApi.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -32,13 +32,13 @@ if (!app.Environment.IsDevelopment())
 }
 else
 {
-    app.UseSwagger();
-    app.UseSwaggerUI(c =>
-    {
-        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Akilli Parmaklar API V1");
-    });
-}
 
+}
+app.UseSwagger();
+app.UseSwaggerUI(c =>
+{
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Akilli Parmaklar API V1");
+});
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 

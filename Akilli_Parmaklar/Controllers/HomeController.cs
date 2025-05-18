@@ -6,8 +6,8 @@ using System.Diagnostics;
 
 namespace Akilli_Parmaklar.Controllers
 {
-    //[ApiController]
-    //[Route("api/[controller]")]
+    [ApiController]
+    [Route("api/[controller]")]
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
@@ -18,22 +18,24 @@ namespace Akilli_Parmaklar.Controllers
             _appDbContext = appDbContext;
         }
 
+        [HttpGet("Index")]
         public IActionResult Index()
         {
             return View();
         }
+        [HttpGet("AddGame")]
         public IActionResult AddGame(CreateGameRequest game)
         {
             return View();
 
         }
-        [HttpGet]
+        [HttpGet("Login")]
         public IActionResult Login()
         {
             return View();
         }
 
-        [HttpPost]
+        [HttpPost("Login")]
         public IActionResult Login(LoginUser request)
         {
             User? user = _appDbContext.Users.FirstOrDefault(u => u.UserName == request.UserName);
@@ -41,7 +43,7 @@ namespace Akilli_Parmaklar.Controllers
             {
                 Console.WriteLine("Kullanıcı bulunamadı");
             }
-            if(user.Password == request.Password)
+            if (user.Password == request.Password)
             {
                 Console.WriteLine("Kullanıcı giriş yaptı");
                 return View();
@@ -52,7 +54,7 @@ namespace Akilli_Parmaklar.Controllers
                 return View();
             }
         }
-        [HttpPost]
+        [HttpPost("Register")]
         public IActionResult Register(RegisterUser request)
         {
             User? user = _appDbContext.Users.FirstOrDefault(u => u.UserName == request.UserName);
@@ -62,7 +64,7 @@ namespace Akilli_Parmaklar.Controllers
                 ViewBag.ErrorMessage = "Bu kullanıcı adına ait bir hesap daha önce oluşturuldu";
                 return View();
             }
-            User createUser= new User();
+            User createUser = new User();
             createUser.Name = request.Name;
             createUser.Email = request.Email;
             createUser.Password = request.Password;
@@ -73,14 +75,15 @@ namespace Akilli_Parmaklar.Controllers
             _appDbContext.SaveChanges();
             return View();
         }
-        [HttpGet]
+        [HttpGet("Games")]
         public IActionResult Games()
         {
             var games = _appDbContext.Games.ToList();
-            games.Add(new() { Name = "test" ,Description = "test description"});
+            games.Add(new() { Name = "test", Description = "test description" });
             ViewBag.Games = games;
             return View();
         }
+        [HttpGet("Privacy")]
         public IActionResult Privacy()
         {
             return View();

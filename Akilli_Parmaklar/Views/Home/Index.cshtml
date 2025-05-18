@@ -9,7 +9,7 @@
 
 
 
- <div class="content-window">
+<div class="content-window">
   <div class="hero-text">
     <h1 ><span class="oyna">Oyna,</span> <span class="ciz">Çiz, </span><span class="gelis"> Geliş!</span> </h1>
     <p>Burada oyun var, eğlence var, öğrenme var!<br>
@@ -29,16 +29,63 @@ Sanal tahtada harfler, kutuda kalma oyunları ve daha fazlası...<br> el-göz ko
     
 </div>
 <div class="game-window">
+  <!-- Başlık ve arama çubuğu -->
   <div class="game-window-header">
     <h2 class="game-title">Oyunlarımız</h2>
     <input type="text" placeholder="Oyun ara..." class="game-search" />
   </div>
 
-  <div class="game"><img src="~/images/ey.png" alt="oyun1"></div>
-  <div class="game"><img src="~/images/oyun2.png" alt="oyun2"></div>
-  <div class="game"><img src="~/images/oyun3.png" alt="oyun3"></div>
-  <div class="game"><img src="~/images/oyun4.png" alt="oyun4"></div>
+  <!-- Oyunlar (2 sütunlu grid şeklinde) -->
+  <div class="game"><a href="#"class="gamebutton"><img src="~/images/oyun1.png" alt="oyun1"></a></div>
+  <div class="game"><a href="#"class="gamebutton"><img src="~/images/oyun2.png" alt="oyun2"></a></div>
+  <div class="game"><a href="#"class="gamebutton"><img src="~/images/oyun3.png" alt="oyun3"></a></div>
+  <div class="game"><a href="#"class="gamebutton"><img src="~/images/oyun4.png" alt="oyun4"></a></div>
+
+  <!-- Alt ortadaki buton -->
+  <div class="game-explore">
+    <a href="#" class="explore-button">Oyunlarımızı Keşfedin</a>
+  </div>
 </div>
+
+<div class="statistics-window">
+  <div class="statistics">
+    <h2> Sitemizde Neler Oluyor?</h2>
+  <div class="stats-grid">
+    <div class="stat-card">
+      <h3>👩‍👧‍👦 12.453</h3>
+      <p>Kayıtlı Kullanıcı</p>
+    </div>
+    <div class="stat-card">
+      <h3>🎮 8.920</h3>
+      <p>“Kutuda Kal” Oyunu Oynandı</p>
+    </div>
+    <div class="stat-card">
+      <h3>✏️ 6.300</h3>
+      <p>Sanal Tahta Kullanıcısı</p>
+    </div>
+    <div class="stat-card">
+      <h3>🕒 18 dk</h3>
+      <p>Günlük Ortalama Oyun Süresi</p>
+    </div>
+    <div class="stat-card">
+      <h3>🌟 2.140</h3>
+      <p>Yeni Kullanıcı (Son 30 Gün)</p>
+    </div>
+    <div class="stat-card">
+      <h3>🔍 Harf Eşleştirme</h3>
+      <p>En Çok Aranan Oyun Teması</p>
+    </div>
+  </div>
+
+  </div>
+ <div class="statistic-video">
+  <video autoplay loop muted playsinline>
+  <source src="~/images/istatistik.mp4" type="video/mp4">
+   </video> 
+
+ </div> 
+</div>
+
 
 
 
