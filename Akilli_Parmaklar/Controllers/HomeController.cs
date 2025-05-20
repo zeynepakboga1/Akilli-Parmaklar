@@ -18,7 +18,7 @@ namespace Akilli_Parmaklar.Controllers
             _appDbContext = appDbContext;
         }
 
-        [HttpGet("Index")]
+        [HttpGet]
         public IActionResult Index()
         {
             var games = _appDbContext.Games.ToList();
