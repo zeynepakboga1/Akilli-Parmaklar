@@ -91,12 +91,22 @@ namespace Akilli_Parmaklar.Controllers
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+
+        [HttpGet]
+        public IActionResult Contact()
+        {
+            var games = _appDbContext.Games.ToList();
+            foreach (var game in games)
+            {
+
+                Console.WriteLine(game.Name);
+            }
+            ViewBag.Game = games[0];
+            return View();
+        }
     }
 }
     
-public IActionResult Contact()
-{
-    return View();
-}
+   
 
 
