@@ -1,31 +1,47 @@
-@model Akilli_Parmaklar.Models.Game
 
-<link href="https://fonts.googleapis.com/css2?family=Fredoka&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Gloria+Hallelujah&display=swap" rel="stylesheet">
+<div class="game-section">
 
-<link href="~/css/index.css" rel="stylesheet" />
-
-<h2>Oyun Ekle</h2>
-
-<form asp-action="AddGame" method="post">
-    <div>
-        <label for="Name">Oyun Adı</label>
-        <input type="text" id="Name" name="Name" required />
+  <a href="reflex-burst.html" class="game-card">
+    <div class="game-image">
+      <img src="images/reflex-burst.jpg" alt="Kopyala Yapıştır">
     </div>
-
-    <div>
-        <label for="Description">Açıklama</label>
-        <textarea id="Description" name="Description" required></textarea>
+    <div class="game-content">
+      <h3>Kopyala Yapıştır</h3>
+      <p>Ekranda gördüğün hareketleri taklit et!En hızlı yapan kazanır!</p>
     </div>
+  </a>
 
-        <div>
-        <label for="ImagePath">Fotoğraf </label>
-        <textarea id="ImagePath" name="ImagePath" required></textarea>
+  <a href="cubechase.html" class="game-card">
+    <div class="game-image">
+      <img src="images/cubechase.jpg" alt="Küpte Kal">
     </div>
-        <div>
-        <label for="ExecutablePath">exe path</label>
-        <textarea id="ExecutablePath" name="ExecutablePath" required></textarea>
+    <div class="game-content">
+      <h3>KüpteKal</h3>
+      <p>Kocaman kırmızı bir küp var, sakın onu elinden kaçırma!</p>
     </div>
+  </a>
 
-    <button type="submit">Kaydet</button>
-</form>
+  <a href="drawit.html" class="game-card">
+    <div class="game-image">
+      <img src="images/drawit.jpg" alt="Hayal Tahtası">
+    </div>
+    <div class="game-content">
+      <h3>Hayal Tahtası</h3>
+      <p>Tüm hayallerini yanına taşımak ister misin. Hayali tahtamızı kullan ve dünyayı renklendir.</p>
+    </div>
+  </a>
+
+  <a href="coming-soon.html" class="game-card">
+    <div class="game-image">
+      <img src="images/coming-soon.jpg" alt="Coming Soon">
+    </div>
+    <div class="game-content">
+        
+      <h3>Coming Soon</h3>
+      <p>A new game is on the way. Stay tuned!</p>
+    </div>
+  </a>
+
+</div>
+
+
