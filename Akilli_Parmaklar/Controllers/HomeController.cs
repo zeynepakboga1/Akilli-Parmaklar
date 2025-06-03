@@ -93,3 +93,10 @@ namespace Akilli_Parmaklar.Controllers
         }
     }
 }
+    
+public IActionResult Contact()
+{
+    return View();
+}
+
+
