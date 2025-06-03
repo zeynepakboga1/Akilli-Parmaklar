@@ -22,10 +22,10 @@ namespace Akilli_Parmaklar.Controllers
         public IActionResult Index()
         {
             var games = _appDbContext.Games.ToList();
-            foreach(var game in games)
+            foreach (var game in games)
             {
-                
-            Console.WriteLine(game.Name);
+
+                Console.WriteLine(game.Name);
             }
             ViewBag.Game = games[0];
             return View();
@@ -55,7 +55,7 @@ namespace Akilli_Parmaklar.Controllers
                 Console.WriteLine("Şifre yanlış");
                 return View();
             }
-            
+
         }
 
         [HttpPost("Register")]
@@ -79,14 +79,7 @@ namespace Akilli_Parmaklar.Controllers
             _appDbContext.SaveChanges();
             return View();
         }
-        [HttpGet("Games")]
-        public IActionResult Games()
-        {
-            var games = _appDbContext.Games.ToList();
-            games.Add(new() { Name = "test", Description = "test description" });
-            ViewBag.Games = games;
-            return View();
-        }
+
         [HttpGet("Privacy")]
         public IActionResult Privacy()
         {
