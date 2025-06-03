@@ -7,6 +7,7 @@ a.navbar-brand {
   white-space: normal;
   text-align: center;
   word-break: break-all;
+  background-color: aquamarine;
 }
 
 a {
@@ -48,4 +49,14 @@ button.accept-policy {
   width: 100%;
   white-space: nowrap;
   line-height: 60px;
+}
+
+.nav-item:hover{
+  border: 2px solid #11aa4f;
+  border-radius: 8px;
+  padding: 1px 5px;
+  background-color: #79dd79;
+  color: #007bff;
+  transition: all 0.3s ease;
+  
 }
