@@ -1,0 +1,56 @@
+@page
+@{
+}
+<div>
+    <select id="gameSelect">
+        <option value="hand_paint">Hand Paint</option>
+        <option value="hand_pose">Hand Pose Challenge</option>
+    </select>
+</div>
+
+<video id="video" autoplay style="display: none;"></video>
+<canvas id="canvas" style="display: none;"></canvas>
+<img id="processedImage" />
+<script>
+    const video = document.getElementById('video');
+    const canvas = document.getElementById('canvas');
+    const imgOutput = document.getElementById('processedImage');
+    const ctx = canvas.getContext('2d');
+
+    navigator.mediaDevices.getUserMedia({ video: true }).then((stream) => {
+        video.srcObject = stream;
+    });
+
+    video.addEventListener('loadedmetadata', () => {
+        setInterval(captureAndSendFrame, 100);
+    });
+
+    async function captureAndSendFrame() {
+        if (video.videoWidth === 0 || video.videoHeight === 0) return;
+
+        canvas.width = video.videoWidth;
+        canvas.height = video.videoHeight;
+        ctx.drawImage(video, 0, 0, canvas.width, canvas.height);
+
+        const dataURL = canvas.toDataURL('image/jpeg');
+        const base64 = dataURL.split(',')[1];
+
+        const game = document.getElementById("gameSelect").value;
+        const response = await fetch("http://127.0.0.1:5001/process-frame", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                image: base64,
+                game: game
+            })
+        });
+
+        const result = await response.json();
+        if (result.image) {
+            imgOutput.src = 'data:image/jpeg;base64,' + result.image;
+        }
+    }
+</script>
+

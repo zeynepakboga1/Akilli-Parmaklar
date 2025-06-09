@@ -36,5 +36,11 @@ namespace Akilli_Parmaklar.Controllers
             _appDbContext.SaveChanges();
             return View();
         }
+
+        [HttpGet]
+        public IActionResult Action()
+        {
+            return View();
+        }
     }
 }
